@@ -1,59 +1,44 @@
 ﻿@model IEnumerable<CRUD.Models.Producto>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Productos";
 }
 
-<h1>Index</h1>
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Lista de Productos</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.DblCantidad)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DatFechaRegistro)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StrNombre)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DblPrecio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.StrClave)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.DblCantidad)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DatFechaRegistro)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StrNombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DblPrecio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.StrClave)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.IntProducto">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IntProducto">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IntProducto">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <div class="d-flex justify-content-between mb-3">
+        <a asp-action="Create" class="btn btn-success">➕ Agregar Nuevo Producto</a>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-hover text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.DblCantidad)</th>
+                    <th>@Html.DisplayNameFor(model => model.DatFechaRegistro)</th>
+                    <th>@Html.DisplayNameFor(model => model.StrNombre)</th>
+                    <th>@Html.DisplayNameFor(model => model.DblPrecio)</th>
+                    <th>@Html.DisplayNameFor(model => model.StrClave)</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model) {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.DblCantidad)</td>
+                        <td>@Html.DisplayFor(modelItem => item.DatFechaRegistro)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StrNombre)</td>
+                        <td>$@Html.DisplayFor(modelItem => item.DblPrecio)</td>
+                        <td>@Html.DisplayFor(modelItem => item.StrClave)</td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.IntProducto" class="btn btn-warning btn-sm">✏️ Editar</a>
+                            <a asp-action="Details" asp-route-id="@item.IntProducto" class="btn btn-info btn-sm">ℹ️ Detalles</a>
+                            <a asp-action="Delete" asp-route-id="@item.IntProducto" class="btn btn-danger btn-sm">🗑️ Eliminar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

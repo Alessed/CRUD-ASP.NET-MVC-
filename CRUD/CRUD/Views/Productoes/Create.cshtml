@@ -1,0 +1,63 @@
+﻿@model CRUD.Models.Producto
+
+@{
+    ViewData["Title"] = "Crear Producto";
+}
+
+<div class="container my-5">
+    <h1 class="text-center mb-4 text-primary">Crear Producto</h1>
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h4 class="card-title text-center mb-4">Registrar Nuevo Producto</h4>
+                    <form asp-action="Create">
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="DblCantidad" class="form-label">Cantidad</label>
+                            <input asp-for="DblCantidad" class="form-control" placeholder="Ingrese la cantidad" />
+                            <span asp-validation-for="DblCantidad" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="DatFechaRegistro" class="form-label">Fecha de Registro</label>
+                            <input asp-for="DatFechaRegistro" type="date" class="form-control" />
+                            <span asp-validation-for="DatFechaRegistro" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="StrNombre" class="form-label">Nombre del Producto</label>
+                            <input asp-for="StrNombre" class="form-control" placeholder="Nombre del producto" />
+                            <span asp-validation-for="StrNombre" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="DblPrecio" class="form-label">Precio</label>
+                            <input asp-for="DblPrecio" class="form-control" placeholder="Ingrese el precio" />
+                            <span asp-validation-for="DblPrecio" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="StrClave" class="form-label">Clave del Producto</label>
+                            <input asp-for="StrClave" class="form-control" placeholder="Clave del producto" />
+                            <span asp-validation-for="StrClave" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3 text-center">
+                            <input type="submit" value="Crear Producto" class="btn btn-success w-100" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="text-center mt-4">
+    <a asp-action="Index" class="btn btn-link">Volver a la lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
