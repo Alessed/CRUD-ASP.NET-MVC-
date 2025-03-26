@@ -4,136 +4,58 @@
     ViewData["Title"] = "Index";
 }
 
-<h1 class="titulo">Lista de Productos</h1>
+<h1>Index</h1>
 
-<p class="crear-nuevo">
-    <a asp-action="Create" class="btn-crear">➕ Crear Nuevo</a>
+<p>
+    <a asp-action="Create">Create New</a>
 </p>
-
 <table class="table">
     <thead>
         <tr>
-            <th>@Html.DisplayNameFor(model => model.DblCantidad)</th>
-            <th>@Html.DisplayNameFor(model => model.DatFechaRegistro)</th>
-            <th>@Html.DisplayNameFor(model => model.StrNombre)</th>
-            <th>@Html.DisplayNameFor(model => model.DblPrecio)</th>
-            <th>@Html.DisplayNameFor(model => model.StrClave)</th>
-            <th>Acciones</th>
+            <th>
+                @Html.DisplayNameFor(model => model.DblCantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DatFechaRegistro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrNombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DblPrecio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StrClave)
+            </th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
-            <td>@Html.DisplayFor(modelItem => item.DblCantidad)</td>
-            <td>@Html.DisplayFor(modelItem => item.DatFechaRegistro)</td>
-            <td>@Html.DisplayFor(modelItem => item.StrNombre)</td>
-            <td>@Html.DisplayFor(modelItem => item.DblPrecio)</td>
-            <td>@Html.DisplayFor(modelItem => item.StrClave)</td>
-            <td class="acciones">
-                <a asp-action="Edit" asp-route-id="@item.IntProducto" class="btn editar">✏️ Editar</a>
-                <a asp-action="Details" asp-route-id="@item.IntProducto" class="btn detalles">🔍 Detalles</a>
-                <a asp-action="Delete" asp-route-id="@item.IntProducto" class="btn eliminar">🗑️ Eliminar</a>
+            <td>
+                @Html.DisplayFor(modelItem => item.DblCantidad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DatFechaRegistro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrNombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DblPrecio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StrClave)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IntProducto">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.IntProducto">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.IntProducto">Delete</a>
             </td>
         </tr>
 }
     </tbody>
 </table>
 
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f8f9fa;
-        margin: 20px;
-    }
 
-    .titulo {
-        text-align: center;
-        color: #333;
-        margin-bottom: 20px;
-    }
-
-    .crear-nuevo {
-        text-align: right;
-        margin-bottom: 10px;
-    }
-
-    .btn-crear {
-        background-color: #28a745;
-        color: white;
-        padding: 10px 15px;
-        text-decoration: none;
-        border-radius: 5px;
-    }
-
-    .btn-crear:hover {
-        background-color: #218838;
-    }
-
-    .table {
-        width: 100%;
-        border-collapse: collapse;
-        background: white;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        border-radius: 5px;
-        overflow: hidden;
-    }
-
-    .table th, .table td {
-        border: 1px solid #ddd;
-        padding: 12px;
-        text-align: center;
-    }
-
-    .table th {
-        background-color: #007bff;
-        color: white;
-    }
-
-    .table tbody tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-
-    .table tbody tr:hover {
-        background-color: #d4edda;
-    }
-
-    .acciones {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-    }
-
-    .btn {
-        text-decoration: none;
-        padding: 8px 12px;
-        border-radius: 5px;
-        font-size: 14px;
-    }
-
-    .editar {
-        background-color: #ffc107;
-        color: black;
-    }
-
-    .detalles {
-        background-color: #17a2b8;
-        color: white;
-    }
-
-    .eliminar {
-        background-color: #dc3545;
-        color: white;
-    }
-
-    .editar:hover {
-        background-color: #e0a800;
-    }
-
-    .detalles:hover {
-        background-color: #138496;
-    }
-
-    .eliminar:hover {
-        background-color: #c82333;
-    }
-</style>
