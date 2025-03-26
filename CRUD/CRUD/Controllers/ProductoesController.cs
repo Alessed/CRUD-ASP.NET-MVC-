@@ -33,7 +33,7 @@ namespace CRUD.Controllers
             }
 
             var producto = await _context.Productos
-                .FirstOrDefaultAsync(m => m.IntProducto == id);
+                .FirstOrDefaultAsync(m => m.intProducto == id);
             if (producto == null)
             {
                 return NotFound();
@@ -53,7 +53,7 @@ namespace CRUD.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("IntProducto,DblCantidad,DatFechaRegistro,StrNombre,DblPrecio,StrClave")] Producto producto)
+        public async Task<IActionResult> Create([Bind("intProducto,dblCantidad,datFechaRegistro,strNombre,dblPrecio,strClave")] Producto producto)
         {
             if (ModelState.IsValid)
             {
@@ -85,9 +85,9 @@ namespace CRUD.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("IntProducto,DblCantidad,DatFechaRegistro,StrNombre,DblPrecio,StrClave")] Producto producto)
+        public async Task<IActionResult> Edit(int id, [Bind("intProducto,dblCantidad,datFechaRegistro,strNombre,dblPrecio,strClave")] Producto producto)
         {
-            if (id != producto.IntProducto)
+            if (id != producto.intProducto)
             {
                 return NotFound();
             }
@@ -101,7 +101,7 @@ namespace CRUD.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ProductoExists(producto.IntProducto))
+                    if (!ProductoExists(producto.intProducto))
                     {
                         return NotFound();
                     }
@@ -124,7 +124,7 @@ namespace CRUD.Controllers
             }
 
             var producto = await _context.Productos
-                .FirstOrDefaultAsync(m => m.IntProducto == id);
+                .FirstOrDefaultAsync(m => m.intProducto == id);
             if (producto == null)
             {
                 return NotFound();
@@ -150,7 +150,7 @@ namespace CRUD.Controllers
 
         private bool ProductoExists(int id)
         {
-            return _context.Productos.Any(e => e.IntProducto == id);
+            return _context.Productos.Any(e => e.intProducto == id);
         }
     }
 }

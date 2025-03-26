@@ -25,17 +25,17 @@ public partial class ProductosContext : DbContext
     {
         modelBuilder.Entity<Producto>(entity =>
         {
-            entity.HasKey(e => e.IntProducto).HasName("PK__Producto__FCE3CB4A51EB8DD1");
+            entity.HasKey(e => e.intProducto).HasName("PK__Producto__FCE3CB4A51EB8DD1");
 
-            entity.Property(e => e.IntProducto).HasColumnName("intProducto");
-            entity.Property(e => e.DatFechaRegistro).HasColumnName("datFechaRegistro");
-            entity.Property(e => e.DblCantidad).HasColumnName("dblCantidad");
-            entity.Property(e => e.DblPrecio).HasColumnName("dblPrecio");
-            entity.Property(e => e.StrClave)
+            entity.Property(e => e.intProducto).HasColumnName("intProducto");
+            entity.Property(e => e.datFechaRegistro).HasColumnName("datFechaRegistro");
+            entity.Property(e => e.dblCantidad).HasColumnName("dblCantidad");
+            entity.Property(e => e.dblPrecio).HasColumnName("dblPrecio");
+            entity.Property(e => e.strClave)
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("strClave");
-            entity.Property(e => e.StrNombre)
+            entity.Property(e => e.strNombre)
                 .HasMaxLength(50)
                 .IsUnicode(false)
                 .HasColumnName("strNombre");

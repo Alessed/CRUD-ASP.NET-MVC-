@@ -5,15 +5,15 @@ namespace CRUD.Models;
 
 public partial class Producto
 {
-    public int IntProducto { get; set; }
+    public int intProducto { get; set; }
 
-    public double? DblCantidad { get; set; }
+    public double? dblCantidad { get; set; }
 
-    public DateOnly? DatFechaRegistro { get; set; }
+    public DateOnly? datFechaRegistro { get; set; }
 
-    public string? StrNombre { get; set; }
+    public string? strNombre { get; set; }
 
-    public double? DblPrecio { get; set; }
+    public double? dblPrecio { get; set; }
 
-    public string? StrClave { get; set; }
+    public string? strClave { get; set; }
 }
